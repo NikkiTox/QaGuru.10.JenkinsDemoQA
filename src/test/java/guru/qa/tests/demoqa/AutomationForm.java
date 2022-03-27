@@ -54,7 +54,7 @@ public class AutomationForm {
         $("#state").scrollTo().click();
         $("#stateCity-wrapper").$(Selectors.byText("NCR")).click();
         $("#city").click();
-        $("#stateCity-wrapper").$(Selectors.byText("Noida")).click();
+        $("#stateCity-wrapper").$(Selectors.byText("Delhi")).click();
         $("#submit").click();
 
         $("#example-modal-sizes-title-lg").shouldHave(Condition.text("Thanks for submitting the form"));
