@@ -42,7 +42,7 @@ public class AutomationForm {
         $("[aria-label$='March 5th, 1994']").click();
         $("#subjectsInput").setValue("Commerce").pressEnter();
         $("#hobbiesWrapper").$(Selectors.byText("Music")).click();
-        $("#uploadPicture").uploadFile (new File("src/test/resources/1.png"));
+//        $("#uploadPicture").uploadFile (new File("src/test/resources/1.png"));
         $("#currentAddress").setValue("Testograd");
         $("#state").scrollTo().click();
         $("#stateCity-wrapper").$(Selectors.byText("Rajasthan")).click();
