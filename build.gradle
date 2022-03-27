@@ -12,6 +12,7 @@ allure{
         version.set(allureVersion)
     }
     adapter{
+        autoconfigure.set(true)
         aspectjWeaver.set(true)
         frameworks {
             junit5{
