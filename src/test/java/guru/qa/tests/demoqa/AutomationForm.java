@@ -3,11 +3,12 @@ package guru.qa.tests.demoqa;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selectors;
+import guru.qa.tests.helpers.Attachments;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -26,7 +27,13 @@ public class AutomationForm {
         Configuration.browserCapabilities = capabilities;
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
-
+    @AfterEach
+    void addAttachments(){
+        Attachments.screenshotAs("Last screenshot");
+        Attachments.pageSource();
+        Attachments.browserConsoleLogs();
+        Attachments.addVideo();
+    }
     @Test
     void successFillTest() {
         open("/automation-practice-form");
@@ -45,9 +52,9 @@ public class AutomationForm {
 //        $("#uploadPicture").uploadFile (new File("src/test/resources/1.png"));
         $("#currentAddress").setValue("Testograd");
         $("#state").scrollTo().click();
-        $("#stateCity-wrapper").$(Selectors.byText("Rajasthan")).click();
+        $("#stateCity-wrapper").$(Selectors.byText("NCR")).click();
         $("#city").click();
-        $("#stateCity-wrapper").$(Selectors.byText("Jaipur")).click();
+        $("#stateCity-wrapper").$(Selectors.byText("Noida")).click();
         $("#submit").click();
 
         $("#example-modal-sizes-title-lg").shouldHave(Condition.text("Thanks for submitting the form"));
